@@ -1,0 +1,173 @@
+# freeride 워크스페이스 컴포넌트 구성 및 디렉토리 레이아웃 명세서
+schema_version: 1
+
+workspace:
+  name: "freeride"
+  full_name: "Federated Repositories for Extracting Every Reference Into Developer-Executed Katas"
+  repository: "git@github.com:coralstay/freeride.git"
+  root_files:
+    - "README.md"
+    - "layout.yaml"
+    - ".gitignore"
+
+# ==============================================================================
+# 1. 상위 freeride가 보유한 하위 컴포넌트 정의 (Components)
+# ==============================================================================
+components:
+  doctree:
+    profile: "controller"
+    path: "./doctree"
+    repository: "git@github.com:coralstay/doctree.git"
+    role: "구글 드라이브 도서 대장 관리, 3-Way 동기화, 디렉토리 스캐폴딩 및 PDF 파싱 CLI"
+
+  handcrafted-cpp:
+    profile: "handcrafted"
+    path: "./handcrafted-cpp"
+    repository: "git@github.com:coralstay/handcrafted-cpp.git"
+    role: "C/C++ 및 Linux 시스템 프로그래밍·알고리즘 실습 프레임워크 (표준 기준 모델)"
+
+  handcrafted-java:
+    profile: "handcrafted"
+    path: "./handcrafted-java"
+    repository: "git@github.com:coralstay/handcrafted-java.git"
+    role: "Java 및 JVM 생태계 실습 프레임워크"
+
+  handcrafted-python:
+    profile: "handcrafted"
+    path: "./handcrafted-python"
+    repository: null
+    role: "Python 코어 및 AI·머신러닝·LLM·데이터 과학(ml/, llm/, data-science/, certifications/) 실습 프레임워크"
+
+  handcrafted-ts:
+    profile: "handcrafted"
+    path: "./handcrafted-ts"
+    repository: null
+    role: "JavaScript·TypeScript·React·Next.js 웹 애플리케이션 실습 프레임워크"
+
+  math:
+    profile: "handcrafted"
+    path: "./math"
+    repository: null
+    role: "수학 13권(이산수학·수리논리·해석학·위상수학·선형대수·공업수학·수치해석·통계학) 수식·증명·코드 실습 프레임워크"
+
+  coding-style-refactoring-principles:
+    profile: "handcrafted"
+    path: "./coding-style-refactoring-principles"
+    repository: "git@github.com:coralstay/coding-style-refactoring-principles.git"
+    role: "소프트웨어 공학 9대 명저 클린 코드·리팩터링·테스팅 다국어 실습 프레임워크"
+
+  databases:
+    profile: "handcrafted"
+    path: "./databases"
+    repository: "git@github.com:coralstay/databases.git"
+    role: "데이터베이스 18권 SQL·스키마·실행계획 튜닝 실습 프레임워크"
+
+  devOps-LifeCycle:
+    profile: "handcrafted"
+    path: "./devOps-LifeCycle"
+    repository: "git@github.com:coralstay/devOps-LifeCycle.git"
+    role: "Terraform 기반 AWS 클라우드 인프라·아키텍처·보안 자격증 실습 프레임워크"
+
+  real-estate:
+    profile: "handcrafted"
+    path: "./real-estate"
+    repository: null
+    role: "부동산·감정평가사·도시개발법·토지보상·법문서(17권) 실무 계산 및 사례 실습 프레임워크"
+
+  architecture:
+    profile: "handcrafted"
+    path: "./architecture"
+    repository: null
+    role: "건축기사·실내건축기사·건설사업관리(계약·공정·VE·LCC·품질안전 6권) 실습 프레임워크"
+
+  business:
+    profile: "handcrafted"
+    path: "./business"
+    repository: null
+    role: "재경관리사·보험계리사·핀테크·리스크·호텔경영·보건의료(13권) 재무·계리 실습 프레임워크"
+
+  learning:
+    profile: "handcrafted"
+    path: "./learning"
+    repository: null
+    role: "세컨드 브레인·학습법·개발자 글쓰기·교양과학·영어 어휘·PMBOK(14권) 실습 프레임워크"
+
+  research:
+    profile: "handcrafted"
+    path: "./research"
+    repository: null
+    role: "논문 및 심화 기술 리서치 실습 프레임워크"
+
+  dev-toolchain:
+    profile: "toolchain"
+    path: "./dev-toolchain"
+    ssot_path: "../dev-tools/dev-toolchain"
+    repository: "git@github.com:coralstay/dev-toolchain.git"
+    role: "macOS 언어 런타임(asdf) 및 오픈소스 툴체인(@oss) 통합 버전 매니저 (독립 SSOT: dev-tools/dev-toolchain 심볼릭 링크 참조)"
+
+# ==============================================================================
+# 2. 프로필별 하위 디렉토리 및 필수 파일 규격 (Layout Profiles)
+# ==============================================================================
+profiles:
+  controller:
+    directories:
+      - "config"
+      - "snapshots"
+      - "src"
+      - "tests"
+    required_files:
+      - ".gitignore"
+      - "README.md"
+      - "pyproject.toml"
+      - "requirements.txt"
+      - "config/category_tree.yaml"
+      - "config/content_category_map.yaml"
+      - "config/project_layout_profiles.yaml"
+    gitignore_entries:
+      - "/snapshots/"
+      - "credentials.json"
+      - "token.json"
+
+  handcrafted:
+    content_dir: "contents"
+    content_data_dir: "content_data"
+    practice_dir: "practice"
+    directories:
+      - "contents"
+      - "content_data"
+      - "practice"
+      - "scripts"
+      - "tips"
+    required_files:
+      - ".gitignore"
+      - "README.md"
+      - "PROJECT_STRUCTURE.md"
+      - "PRACTICE_GUIDE.md"
+      - "scripts/run.sh"
+      - "scripts/test.sh"
+      - "scripts/reset.sh"
+      - "scripts/locate.sh"
+      - "scripts/snippets.sh"
+      - "scripts/help.sh"
+    gitignore_entries:
+      - "/contents/"
+      - "/content_data/"
+      - "practice/**/README.md"
+      - "practice/**/assets/"
+      - "practice/**/.skeleton/"
+
+  toolchain:
+    content_dir: "contents"
+    content_data_dir: "content_data"
+    directories:
+      - "contents"
+      - "docs"
+      - "scripts"
+      - "spec"
+    required_files:
+      - ".gitignore"
+      - "README.md"
+      - "install.sh"
+      - "uninstall.sh"
+    gitignore_entries:
+      - "/contents/"
