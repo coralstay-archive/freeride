@@ -269,3 +269,7 @@ digraph BTreeIndex {
   ├── scripts/                       : [실행 엔진] run.sh(실행), test.sh(테스트), locate.sh(역추적), snippets.sh
   └── tips/                          : [지식 자산] 검증된 핵심 스니펫과 치트시트 보관 폴더
 ```
+
+## 라이선스
+
+이 저장소에서 직접 작성한 문서와 설정은 [GNU AGPL-3.0-only](./LICENSE)를 따릅니다. 하위 디렉터리는 각자 별도 저장소이며 각자의 LICENSE를 따릅니다.
