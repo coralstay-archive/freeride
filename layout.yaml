@@ -132,12 +132,15 @@ profiles:
     content_dir: "contents"
     content_data_dir: "content_data"
     practice_dir: "practice"
+    # 최상위 디렉토리는 아래 6개만 생성한다 (기준 모델: handcrafted-cpp, 도서는 contents/<도서명>/).
+    # 이 목록 외의 디렉토리는 사용자의 명시적 지시가 있을 때까지 생성·삭제·이동하지 않는다.
     directories:
-      - "contents"
       - "content_data"
+      - "contents"
       - "practice"
       - "scripts"
       - "tips"
+      - ".opensource"
     required_files:
       - ".gitignore"
       - "README.md"
